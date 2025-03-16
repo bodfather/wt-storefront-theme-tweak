@@ -1,5 +1,9 @@
 // admin/js/admin-toggles.js
 jQuery(document).ready(function ($) {
+  // Check URL for active tab
+  const urlParams = new URLSearchParams(window.location.search);
+  const activeTab = urlParams.get("tab") || "general";
+
   // Tab switching
   $(".settings-tabs a").on("click", function (e) {
     e.preventDefault();
@@ -9,8 +13,11 @@ jQuery(document).ready(function ($) {
     $(".tab-pane").hide();
     $("#" + tabId).show();
   });
+
+  // Set initial tab based on URL or default to general
   $(".tab-pane").hide();
-  $("#general").show();
+  $("#" + activeTab).show();
+  $(".settings-tabs a[href='#" + activeTab + "']").addClass("active");
 
   // Toggle admin CSS form visibility
   var toggleAdminCss = $("#wt-admin-css-toggle");
