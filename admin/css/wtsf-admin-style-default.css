@@ -1,0 +1,232 @@
+/* Style for Toggle Switch in Customizer */
+.normal-text {
+  font-size: 13px; /* Matches typical WP admin  */
+  font-weight: normal; /* Ensures no bold */
+  line-height: 1.5; /* Matches WP default */
+  color: #333; /* Default text color in admin */
+}
+.css-editor {
+  width: 60vw;}
+
+input.wt-toggle-container {
+  display: none; /* Hide the checkbox */
+}
+
+label.wt-toggle-slider {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 80px;
+  white-space: nowrap;
+  width: 1px;
+  line-height: 22px;
+  height: 27px;
+}
+
+label.wt-toggle-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+  margin-left: 14px;
+}
+
+label.wt-toggle-slider::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  margin-left: 5px;
+}
+
+.form-table td {
+  vertical-align: baseline;
+}
+
+/* ... [other styles] ... */
+
+input.wt-toggle-container:checked + .wt-toggle-slider::before {
+  background-color: #2196f3;
+}
+
+input.wt-toggle-container:checked + .wt-toggle-slider::after {
+  transform: translateX(16px);
+}
+
+/* notice fading */
+
+.notice-fade {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.notice-fade-in {
+  opacity: 1;
+}
+
+/* PURCHASED ORDERS */
+
+tr.po-li-head {
+  background-color: #80c09b !important;
+}
+
+/* PRODUCT SYNC */
+
+.product-info-modal {
+  float: right;
+}
+
+table.form-table {
+  float: left;
+  display: contents;
+}
+
+table.emailsig-settings {
+  table-layout: auto; /* Allow the table to adjust based on content */
+}
+
+.emailsig-settings th {
+  width: auto;
+}
+
+.emailsig-settings th.description {
+  width: auto;
+}
+
+a:focus {
+  box-shadow: none;
+}
+
+/* pages menu style */
+.settings-tabs {
+  display: inline-block;
+  border-bottom: 1px solid #c3c4c7;
+  padding-top: 20px;
+  width: 100%;
+}
+.settings-tabs a {
+  float: left;
+  border: 1px solid #c3c4c7;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(195, 196, 199);
+  border-bottom: none;
+  margin-left: 0.5em;
+  margin-bottom: -1px;
+  padding: 5px 10px;
+  font-size: 14px;
+  line-height: 1.71428571;
+  font-weight: 600;
+  background: #dcdcde;
+  color: #50575e;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.settings-tabs a.active {
+  border-bottom: 1px solid #f0f0f1;
+  background: #f0f0f1;
+  color: #000;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.row-actions.description {
+  white-space: nowrap;
+}
+
+/* Style for buttons and input to look like row actions */
+.row-actions a {
+  color: #2271b1;
+  text-decoration: none;
+}
+
+.row-actions a:hover {
+  color: #005177;
+}
+
+/* For buttons */
+.row-actions .button,
+.row-actions .button-primary,
+.row-actions .button-link-delete {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #0073aa;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: baseline;
+}
+
+.row-actions .button:hover {
+  color: #005177;
+  text-decoration: underline;
+}
+
+/* For delete button */
+.row-actions .button-link-delete {
+  color: #a00;
+}
+
+.row-actions .button-link-delete:hover {
+  color: #d63638;
+  text-decoration: underline;
+}
+
+/* Ensure the notice blends well with WordPress admin */
+
+.wp-core-ui .notice.is-dismissible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 1s ease-out; /* Smooth transition for fading out */
+}
+
+.wp-core-ui .notice.is-dismissible.fade-out {
+  opacity: 0; /* Fade out effect */
+}
+
+/* admin/css/wtsf-admin-style.css */
+.CodeMirror {
+  height: 400px; /* Adjust height as needed */
+  border: 1px solid #ddd; /* Optional: Matches WP admin */
+}
+
+.color-swatch {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; /* Circular shape */
+  border: 1px solid #ccc; /* Visibility for light colors */
+  margin-left: 5px;
+}
+
+/* Optional: Style for Monokai theme */
+.cm-s-monokai .CodeMirror-line {
+  padding-right: 25px; /* Space for swatches */
+}
