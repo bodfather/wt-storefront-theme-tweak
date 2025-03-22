@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Orig WooTweaks Storefront Theme Tweak
+Plugin Name: WooTweaks Storefront Theme Tweak
 Description: A plugin designed to tweak the Storefront Theme.
 Version: 0.0.2
 Author: bodfather
