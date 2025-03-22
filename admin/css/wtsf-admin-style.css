@@ -3,11 +3,12 @@
   font-size: 13px; /* Matches typical WP admin  */
   font-weight: normal; /* Ensures no bold */
   line-height: 1.5; /* Matches WP default */
-  color: #333; /* Default text color in admin */
+  color: #333; /* Default text color in admin. */
 }
-.css-editor .CodeMirror{
+.css-editor .CodeMirror {
   height: 400px;
-  width: 60vw;}
+  width: 60vw;
+}
 
 input.wt-toggle-container {
   display: none; /* Hide the checkbox */
@@ -48,10 +49,6 @@ label.wt-toggle-slider::after {
   border-radius: 50%;
   transition: transform 0.3s;
   margin-left: 5px;
-}
-
-.form-table td {
-  vertical-align: baseline;
 }
 
 /* ... [other styles] ... */
@@ -106,54 +103,6 @@ table.emailsig-settings {
 
 a:focus {
   box-shadow: none;
-}
-
-/* pages menu style */
-.settings-tabs {
-  display: inline-block;
-  border-bottom: 1px solid #c3c4c7;
-  padding-top: 20px;
-  width: 100%;
-}
-.settings-tabs a {
-  float: left;
-  border: 1px solid #c3c4c7;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(195, 196, 199);
-  border-bottom: none;
-  margin-left: 0.5em;
-  margin-bottom: -1px;
-  padding: 5px 10px;
-  font-size: 14px;
-  line-height: 1.71428571;
-  font-weight: 600;
-  background: #dcdcde;
-  color: #50575e;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.settings-tabs a.active {
-  border-bottom: 1px solid #f0f0f1;
-  background: #f0f0f1;
-  color: #000;
-}
-
-.tab-content {
-  padding: 20px;
-}
-
-.tab-pane {
-  display: none;
-}
-
-.tab-pane.active {
-  display: block;
-}
-
-.row-actions.description {
-  white-space: nowrap;
 }
 
 /* Style for buttons and input to look like row actions */

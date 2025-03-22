@@ -13,13 +13,14 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 	<div class="wrap">
 		<h2><?php esc_html_e( 'General Settings', 'wt-storefront-theme-tweak' ); ?></h2>
 
+		<!-- Toggles (handled via AJAX, no form needed here) -->
 		<table class="form-table">
 			<tr>
 				<th scope="row">
 					<label for="wt-toggle-style"><?php esc_html_e( 'Use WooTweaks StoreFront Theme Tweak Style:', 'wt-storefront-theme-tweak' ); ?></label>
 				</th>
 				<td>
-					<input type="checkbox" id="wt-toggle-style" class="wt-toggle-container" name="wt_sftt_style_toggle" <?php checked( $toggle_status, 'on' ); ?>>
+					<input type="checkbox" id="wt-toggle-style" class="wt-toggle-container" <?php checked( $toggle_status, 'on' ); ?>>
 					<label for="wt-toggle-style" class="wt-toggle-slider"></label>
 				</td>
 			</tr>
@@ -28,7 +29,7 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 					<label for="wt-middle-menu-toggle"><?php esc_html_e( 'Activate Middle Menu:', 'wt-storefront-theme-tweak' ); ?></label>
 				</th>
 				<td>
-					<input type="checkbox" id="wt-middle-menu-toggle" class="wt-toggle-container" name="wt_sftt_middle_menu_toggle" <?php checked( $middle_menu_toggle_status, 'on' ); ?>>
+					<input type="checkbox" id="wt-middle-menu-toggle" class="wt-toggle-container" <?php checked( $middle_menu_toggle_status, 'on' ); ?>>
 					<label for="wt-middle-menu-toggle" class="wt-toggle-slider"></label>
 					<span class="normal-text">(Assign a menu to the "Middle Menu" here: <a href="<?php echo admin_url( 'nav-menus.php?action=locations' ); ?>">Menu Locations</a>)</span>
 				</td>
@@ -38,7 +39,7 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 					<label for="wt-admin-css-toggle"><?php esc_html_e( 'Show/Hide Admin CSS:', 'wt-storefront-theme-tweak' ); ?></label>
 				</th>
 				<td>
-					<input type="checkbox" id="wt-admin-css-toggle" class="wt-toggle-container" name="wt_sftt_admin_css_toggle" <?php checked( $admin_css_toggle_status, 'on' ); ?>>
+					<input type="checkbox" id="wt-admin-css-toggle" class="wt-toggle-container" <?php checked( $admin_css_toggle_status, 'on' ); ?>>
 					<label for="wt-admin-css-toggle" class="wt-toggle-slider"></label>
 				</td>
 			</tr>
@@ -47,6 +48,7 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 		<!-- Admin CSS Editor -->
 		<div id="wt-admin-css-form" style="<?php echo $admin_css_toggle_status === 'on' ? 'display: block;' : 'display: none;'; ?>">
 			<form method="post" action="">
+			<?php wp_nonce_field( 'wt_sftt_save_admin_css', 'wt_sftt_admin_css_nonce' ); ?>
 				<table class="form-table">
 					<tr>
 						<th scope="row">
@@ -55,7 +57,7 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 						</th>
 						<td>
 							<div id="wt-admin-css-editor" class="css-editor" data-content="<?php echo esc_attr( $admin_css_content_current ); ?>"></div>
-							<input type="hidden" name="wt_admin_css_content" id="wt-admin-css-hidden">
+							<input type="hidden" name="wt_admin_css_content" id="wt-admin-css-hidden" value="<?php echo esc_attr( $admin_css_content_current ); ?>">
 							<br>
 							<input type="submit" name="wt_save_admin_css" value="<?php esc_attr_e( 'Save Admin CSS', 'wt-storefront-theme-tweak' ); ?>" class="button button-primary">
 						</td>
@@ -67,6 +69,7 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 
 		<!-- Main CSS Editor -->
 		<form method="post" action="">
+	<?php wp_nonce_field( 'wt_sftt_save_css', 'wt_sftt_css_nonce' ); ?>
 			<table class="form-table">
 				<tr>
 					<th scope="row">
@@ -75,7 +78,7 @@ $admin_css_toggle_status   = get_option( 'wt_sftt_admin_css_toggle', false );
 					</th>
 					<td>
 						<div id="wt-css-editor" class="css-editor" data-content="<?php echo esc_attr( $css_content_current ); ?>"></div>
-						<input type="hidden" name="wt_css_content" id="wt-css-hidden">
+						<input type="hidden" name="wt_css_content" id="wt-css-hidden" value="<?php echo esc_attr( $css_content_current ); ?>">
 						<br>
 						<input type="submit" name="wt_save_css" value="<?php esc_attr_e( 'Save Main CSS', 'wt-storefront-theme-tweak' ); ?>" class="button button-primary">
 					</td>
